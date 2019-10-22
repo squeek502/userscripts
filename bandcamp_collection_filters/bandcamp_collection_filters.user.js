@@ -3,7 +3,7 @@
 // @version 1.0.0
 // @description List items in a collection or wishlist that match certain filters (free, in common, etc)
 // @namespace 289690-squeek502
-// @license Unlicense
+// @license 0BSD
 // @match http*://bandcamp.com/*
 // @include http*://bandcamp.com/*
 // @grant GM_xmlhttpRequest

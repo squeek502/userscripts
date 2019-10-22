@@ -3,7 +3,7 @@
 // @version 1.0.2
 // @description Shows album tags when hovering over an album on a collection page
 // @namespace 289690-squeek502
-// @license Unlicense
+// @license 0BSD
 // @match http*://bandcamp.com/*
 // @include http*://bandcamp.com/*
 // @grant GM_xmlhttpRequest
