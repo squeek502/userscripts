@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name Bandcamp Album Tags On Collection Pages
-// @version 1.0.2
+// @version 1.0.3
 // @description Shows album tags when hovering over an album on a collection page
 // @namespace 289690-squeek502
 // @license 0BSD
@@ -34,29 +34,36 @@
       loadings[id] = loading;
     }
 
+    var bandid = container.getAttribute('data-bandid');
+    var tralbumtype = container.getAttribute('data-tralbumtype');
+    var apiUrl = "https://bandcamp.com/api/mobile/22/tralbum_details?band_id="+bandid+"&tralbum_id="+id+"&tralbum_type="+tralbumtype;
+
     // get tags
     GM_xmlhttpRequest({
       method: 'GET',
-      url: href,
+      url: apiUrl,
       onload: function (res) {
         var status = res.status;
         var body = res.responseText;
         if (status != 200) {
-          console.log("Failed to get tags for: "+href, status, res);
+          console.warn("Failed to get tags for: "+href, status, res);
           return;
         }
-        var htmlDoc = document.implementation.createHTMLDocument();
-        htmlDoc.documentElement.innerHTML = body;
+        var json = JSON.parse(body);
+        if (json.error) {
+          console.warn("Failed to get tags, JSON error:"+json.error_message, res);
+          return;
+        }
 
         container.removeChild(loadings[id]);
 
-        htmlDoc.querySelectorAll(".tralbum-tags .tag").forEach(tag => {
+        json.tags.forEach(tag => {
           var span = document.createElement('span');
           span.style.display = 'inline-block';
           span.style.margin = '2px';
           span.style.padding = '2px';
           span.style.backgroundColor = 'rgba(255, 255, 255, 0.85)';
-          span.innerHTML = tag.innerHTML;
+          span.innerHTML = tag.geoname ? tag.name : tag.name.toLowerCase();
           tags.appendChild(span);
         });
       }
