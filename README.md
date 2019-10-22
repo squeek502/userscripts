@@ -12,7 +12,11 @@ Shows album tags when hovering over an album on a collection page
 
 ### [Bandcamp Collection Filters](bandcamp_collection_filters/)
 
-List items in a collection or wishlist that match certain filters (free, in common, etc)
+Retrieves a list of all items in a collection or wishlist that matches one of the following filters:
+
+- `free`: Any items that are either free or "name your price" (with no minimum)
+- `purchased`: Any items that you have purchased
+- `wishlisted`: Any items that you have wishlisted
 
 ![screenshot](bandcamp_collection_filters/screenshot.png)
 
