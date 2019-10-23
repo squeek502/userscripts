@@ -21,3 +21,17 @@ Retrieves a list of all items in a collection or wishlist that matches one of th
 ![screenshot](bandcamp_collection_filters/screenshot.png)
 
 #### [Source](bandcamp_collection_filters/bandcamp_collection_filters.user.js) | [Install](https://github.com/squeek502/userscripts/raw/master/bandcamp_collection_filters/bandcamp_collection_filters.user.js) | [Greasyfork.org](https://greasyfork.org/en/scripts/391461-bandcamp-collection-filters) | [OpenUserJS.org](https://openuserjs.org/scripts/squeek502/Bandcamp_Collection_Filters)
+
+---
+
+### [Bandcamp Supporters You Follow](bandcamp_followed_supporters/)
+
+Shows supporters of an album/track that you follow.
+
+![screenshot](bandcamp_followed_supporters/screenshot.jpg)
+
+Options:
+
+![options](bandcamp_followed_supporters/options.jpg)
+
+#### [Source](bandcamp_followed_supporters/bandcamp_followed_supporters.user.js) | [Install](https://github.com/squeek502/userscripts/raw/master/bandcamp_followed_supporters/bandcamp_followed_supporters.user.js)
