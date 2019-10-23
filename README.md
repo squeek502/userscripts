@@ -34,4 +34,4 @@ Options:
 
 ![options](bandcamp_followed_supporters/options.jpg)
 
-#### [Source](bandcamp_followed_supporters/bandcamp_followed_supporters.user.js) | [Install](https://github.com/squeek502/userscripts/raw/master/bandcamp_followed_supporters/bandcamp_followed_supporters.user.js)
+#### [Source](bandcamp_followed_supporters/bandcamp_followed_supporters.user.js) | [Install](https://github.com/squeek502/userscripts/raw/master/bandcamp_followed_supporters/bandcamp_followed_supporters.user.js) | [Greasyfork.org](https://greasyfork.org/en/scripts/391484-bandcamp-supporters-you-follow)
