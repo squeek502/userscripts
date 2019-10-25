@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name Bandcamp Supporters You Follow
-// @version 1.0.0
+// @version 1.0.1
 // @description Show supporters of an album/track that you follow
 // @namespace 289690-squeek502
 // @license 0BSD
@@ -169,7 +169,8 @@ var onError = function(err) {
 
 var getNext = function(tralbum_type, tralbum_id, token, lookup) {
   var data = '{"tralbum_type":"'+tralbum_type+'","tralbum_id":'+tralbum_id+',"token":"'+token+'","count":80}';
-  post("https://bandcamp.com/api/tralbumcollectors/2/thumbs", data, function(status, res, url) {
+  var url = (new URL("/api/tralbumcollectors/2/thumbs", document.location)).href;
+  post(url, data, function(status, res, url) {
     if (status != 200) {
       console.warn("failed to get more supporters", status, res, url);
       onError("unexpected http status: " + status);
@@ -213,7 +214,8 @@ var onSummary = function(err, summary) {
 
 var go = function() {
   statusElement.style.display = 'block';
-  get('https://bandcamp.com/api/fan/2/collection_summary', function(status, res, url) {
+  var url = (new URL("/api/fan/2/collection_summary", document.location)).href;
+  get(url, function(status, res, url) {
     if (status != 200) {
       onSummary("unexpected http status code: " + status);
       return;
