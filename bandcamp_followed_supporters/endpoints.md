@@ -1,4 +1,4 @@
-HTML selector `#collectors-data[data-blob]`
+- HTML selector `#collectors-data[data-blob]`
 
 ```json
 {
@@ -46,11 +46,10 @@ HTML selector `#collectors-data[data-blob]`
 
 ---
 
-POST: `https://bandcamp.com/api/tralbumcollectors/2/thumbs`
-POST data: `{"tralbum_type":"a","tralbum_id":3724680000,"token":"1:1570960703:437713:0:0:0","count":80}`
-
-token is of the format `token_version:timestamp:fan_id:?:?:?`
-token_version should be 1, 0 is rejected by the endpoint
+- POST: `https://bandcamp.com/api/tralbumcollectors/2/thumbs`
+- POST data: `{"tralbum_type":"a","tralbum_id":3724680000,"token":"1:1570960703:437713:0:0:0","count":80}`
+  + token is of the format `token_version:timestamp:fan_id:?:?:?`
+  + token_version should be 1, 0 is rejected by the endpoint
 
 ```json
 {
@@ -63,7 +62,7 @@ token_version should be 1, 0 is rejected by the endpoint
 
 ---
 
-GET: `https://bandcamp.com/api/fan/2/collection_summary`
+- GET: `https://bandcamp.com/api/fan/2/collection_summary`
 
 ```json
 {
