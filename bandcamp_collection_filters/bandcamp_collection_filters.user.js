@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name Bandcamp Collection Filters
-// @version 1.0.1
+// @version 1.0.2
 // @description List items in a collection or wishlist that match certain filters (free, in common, etc)
 // @namespace 289690-squeek502
 // @license 0BSD
@@ -41,6 +41,10 @@ pageTypes.forEach(function(type) {
 
   var grid = document.querySelector('#'+type+'-grid');
   var itemsContainer = grid.querySelector('#'+type+'-items-container') || grid.querySelector(':scope > .inner');
+  // not all collection pages always have both a collection and a wishlist, so bail if this fails
+  if (!itemsContainer) {
+    return;
+  }
   var items = itemsContainer.querySelector('#'+type+'-items');
 
   var resultContainer = document.createElement('div');
