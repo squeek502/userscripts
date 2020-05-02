@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name Bandcamp Supporters You Follow
-// @version 1.0.1
+// @version 1.0.2
 // @description Show supporters of an album/track that you follow
 // @namespace 289690-squeek502
 // @license 0BSD
@@ -168,7 +168,12 @@ var onError = function(err) {
 };
 
 var getNext = function(tralbum_type, tralbum_id, token, lookup) {
-  var data = '{"tralbum_type":"'+tralbum_type+'","tralbum_id":'+tralbum_id+',"token":"'+token+'","count":80}';
+  var data;
+  if (token !== undefined) {
+    data = '{"tralbum_type":"'+tralbum_type+'","tralbum_id":'+tralbum_id+',"token":"'+token+'","count":80}';
+  } else {
+    data = '{"tralbum_type":"'+tralbum_type+'","tralbum_id":'+tralbum_id+',"count":80}';
+  }
   var url = (new URL("/api/tralbumcollectors/2/thumbs", document.location)).href;
   post(url, data, function(status, res, url) {
     if (status != 200) {
@@ -200,13 +205,12 @@ var onSummary = function(err, summary) {
   var collectorsData = JSON.parse(document.querySelector('#collectors-data').getAttribute('data-blob'));
   var supporters = collectorsData.thumbs;
   var lookup = summary.follows.following;
-  supporters.forEach(handleSupporter.bind(lookup));
 
   if (collectorsData.more_thumbs_available) {
     var pageData = JSON.parse(document.querySelector('#pagedata').getAttribute('data-blob'));
     var tralbum = pageData.fan_tralbum_data;
-    var lastToken = supporters[supporters.length - 1].token;
-    getNext(tralbum.tralbum_type, tralbum.tralbum_id, lastToken, lookup);
+    // collectorsData.thumbs has only minimal data now, so we have to re-get the first page using no token
+    getNext(tralbum.tralbum_type, tralbum.tralbum_id, undefined, lookup);
   } else {
     onEnd();
   }

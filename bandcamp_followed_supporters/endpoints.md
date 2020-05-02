@@ -4,19 +4,9 @@
 {
   "thumbs": [
     {
-      "featured_track_id": null,
-      "fan_id": 1026178,
       "username": "fanusername",
-      "fav_track_title": null,
-      "url": "https://bandcamp.com/fanusername",
-      "token": "1:1571725467:1026178:0:1:0",
       "image_id": 8669314,
-      "mod_date": "22 Oct 2019 06:24:27 GMT",
       "name": "example fan",
-      "is_montage_image": false,
-      "item_type": "a",
-      "item_id": 3724680000,
-      "why": null
     }
   ],
   "band_thanks_text": "supported by",
@@ -26,19 +16,9 @@
   "more_thumbs_available": true,
   "shown_thumbs": [
     {
-      "featured_track_id": null,
-      "fan_id": 1026178,
       "username": "fanusername",
-      "fav_track_title": null,
-      "url": "https://bandcamp.com/fanusername",
-      "token": "1:1571725467:1026178:0:1:0",
       "image_id": 8669314,
-      "mod_date": "22 Oct 2019 06:24:27 GMT",
       "name": "example fan",
-      "is_montage_image": false,
-      "item_type": "a",
-      "item_id": 3724680000,
-      "why": null
     }
   ]
 }
@@ -50,6 +30,7 @@
 - POST data: `{"tralbum_type":"a","tralbum_id":3724680000,"token":"1:1570960703:437713:0:0:0","count":80}`
   + token is of the format `token_version:timestamp:fan_id:?:?:?`
   + token_version should be 1, 0 is rejected by the endpoint
+  + to get the first page, token should be omitted: `{"tralbum_type":"a","tralbum_id":3724680000,"count":80}`
 
 ```json
 {
