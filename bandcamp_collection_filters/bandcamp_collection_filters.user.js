@@ -86,8 +86,8 @@ var handleItems = function(items, type) {
     var isFree = item.price === 0;
     var lookupKey = item.tralbum_type + "" + item.tralbum_id;
     var tralbum = collectionSummary && collectionSummary.tralbum_lookup[lookupKey];
-    var isPurchased = tralbum && tralbum.purchased;
-    var isWishlisted = tralbum && !tralbum.purchased;
+    var isPurchased = tralbum !== undefined && tralbum.purchased !== undefined;
+    var isWishlisted = tralbum !== undefined && !tralbum.purchased !== undefined;
     if (!(isFree || isPurchased || isWishlisted))
       return;
 
