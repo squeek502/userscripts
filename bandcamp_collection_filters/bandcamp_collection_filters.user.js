@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name Bandcamp Collection Filters
-// @version 1.0.3
+// @version 1.0.4
 // @description List items in a collection or wishlist that match certain filters (free, in common, etc)
 // @namespace 289690-squeek502
 // @license 0BSD
@@ -87,7 +87,7 @@ var handleItems = function(items, type) {
     var lookupKey = item.tralbum_type + "" + item.tralbum_id;
     var tralbum = collectionSummary && collectionSummary.tralbum_lookup[lookupKey];
     var isPurchased = tralbum !== undefined && tralbum.purchased !== undefined;
-    var isWishlisted = tralbum !== undefined && !tralbum.purchased !== undefined;
+    var isWishlisted = tralbum !== undefined && !tralbum.purchased;
     if (!(isFree || isPurchased || isWishlisted))
       return;
 
