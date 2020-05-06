@@ -152,7 +152,12 @@ var getNext = function(fan_id, older_than_token, type) {
     }
     handleItems(parsed.items, type);
     if (parsed.more_available) {
-      getNext(fan_id, parsed.last_token, type);
+      // we should be able to use parsed.last_token here, but there is currently a bug
+      // in the collection_items endpoint in that it always gives the 20th item's token
+      // in last_token even if count is different than 20, so we need to get the actual
+      // last item's token
+      var last_token = parsed.items[parsed.items.length - 1].token;
+      getNext(fan_id, last_token, type);
     }
   });
 };
