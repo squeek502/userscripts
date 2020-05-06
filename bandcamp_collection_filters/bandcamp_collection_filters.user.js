@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name Bandcamp Collection Filters
-// @version 1.0.2
+// @version 1.0.3
 // @description List items in a collection or wishlist that match certain filters (free, in common, etc)
 // @namespace 289690-squeek502
 // @license 0BSD
