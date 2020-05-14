@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name Bandcamp Supporters You Follow
-// @version 1.0.2
+// @version 1.0.3
 // @description Show supporters of an album/track that you follow
 // @namespace 289690-squeek502
 // @license 0BSD
@@ -206,14 +206,10 @@ var onSummary = function(err, summary) {
   var supporters = collectorsData.thumbs;
   var lookup = summary.follows.following;
 
-  if (collectorsData.more_thumbs_available) {
-    var pageData = JSON.parse(document.querySelector('#pagedata').getAttribute('data-blob'));
-    var tralbum = pageData.fan_tralbum_data;
-    // collectorsData.thumbs has only minimal data now, so we have to re-get the first page using no token
-    getNext(tralbum.tralbum_type, tralbum.tralbum_id, undefined, lookup);
-  } else {
-    onEnd();
-  }
+  var pageData = JSON.parse(document.querySelector('#pagedata').getAttribute('data-blob'));
+  var tralbum = pageData.fan_tralbum_data;
+  // collectorsData.thumbs has only minimal data now, so we have to re-get the first page using no token
+  getNext(tralbum.tralbum_type, tralbum.tralbum_id, undefined, lookup);
 };
 
 var go = function() {
